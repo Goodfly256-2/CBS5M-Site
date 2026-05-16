@@ -1,0 +1,32 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block title %}CBS5M - Team{% endblock %}
+
+{% block content %}
+<div class="card-container">
+  <!-- Карточка 1 -->
+  <div class="card">
+    <div class="left-column">
+      <img src="/static/gapur.png" alt="GAPUR OZDO" class="card-img">
+      <div class="card-title">GAPUR<br>OZDO</div>
+    </div>
+    <div class="right-column">
+      <a href="https://www.facebook.com/GapurOzdoev">Facebook</a>
+      <a href="https://t.me/OzdoGapur">Telegram</a>
+    </div>
+  </div>
+
+  <!-- Карточка 2 -->
+  <div class="card">
+    <div class="left-column">
+      <img src="/static/sul.png" alt="SULEYMAN OZDO" class="card-img">
+      <div class="card-title">SULEYMAN<br>OZDO</div>
+    </div>
+    <div class="right-column">
+      <a>Telegram</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

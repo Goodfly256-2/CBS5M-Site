@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+</head>
+<body>
+<img src="/static/img1.png">
+<header class="navbar">
+    <div class="logo"></div>
+    <nav>
+        <ul>
+            <li><a class="Hb" href="/">Home</a></li>
+            <li><a href="WOSN.html">We on social networks</a></li>
+            <li><a href="Team.html">Team</a></li>
+            <li><a href="ser.html">Services</a></li>
+            <li><a href="rul.html">Rules</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="wallets.html">Wallets</a></li>
+            <li><a href="ACKP.html">AML, CFT, KYC Policy.</a></li>
+        </ul>
+    </nav>
+</header>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+    <br><br><br><br><br>
+<p>2020 - 2026.    ©  CBS5M  Project.</p>
+</body>
+</html>
