@@ -1,21 +1,52 @@
-body {
-  font-family: 'Ubuntu', sans-serif;
-  background-color: #101210;
-  color: #cffffd;
-  margin: 0;
-  min-height: 100vh;
-  font-size: 24px;
-}
-p{
-padding-left: 30px;
-}
-h1, h2, h3{
-padding-left: 10px;
-}
-.Hb {
-background-color: red;
+.full-width-image {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
+*{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            background-color: #101210;
+            color: #cffffd;
+            margin: 0;
+            min-height: 100vh;
+            font-size: 24px;
+            line-height: 1.4;
+            padding: 2rem 1.5rem;
+        }
+        p {
+            padding-left: 30px;
+        }
+
+        h1, h2, h3 {
+            padding-left: 10px;
+            font-weight: 500;
+            letter-spacing: -0.3px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #cffffd, #6dede7, #3eeb0e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .Hb {
+            background-color: red;
+        }
+
+        /* Градиентные ссылки, кнопки и элементы — единый стиль */
 a {
   display: inline-block;
   padding-left: 30px;
@@ -30,121 +61,271 @@ a {
   transition: background-position 0.5s ease;
 }
 
-a:hover {
-  background-position: 100% 0%;
-}
-ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  gap: 20px;
-}
-summary {
-padding-left: 30px;
-display: inline-block;
-  padding: 10px 20px;
-  border-radius: 15px;
-  border: none;
-  color: black;
-  text-decoration: none;
-  background: linear-gradient(90deg, #3eeb0e, #6dede7, yellow, yellow);
-  background-size: 300% 100%;
-  background-position: 0% 0%;
-  transition: background-position 0.5s ease;
-}
-summary:hover{
-background-position: 100% 0%;
-}
-/* Скрываем стандартную стрелку (для всех браузеров) */
-summary::-webkit-details-marker { display: none; }
-summary { list-style: none; position: relative; cursor: pointer; padding-left: 45px !important; /* место для стрелки */ }
+        a:hover,
+        .gradient-btn:hover,
+        .copy-address-btn:hover,
+        .explorer-link-custom:hover,
+        .action-button:hover {
+            background-position: 100% 0%;
+            color: #000;
+        }
 
-/* Создаем кастомную стрелку */
-summary::before {
-  content: '';
-  position: absolute;
-  left: 15px;
-  top: 50%;
-  width: 10px;
-  height: 10px;
-  border-right: 3px solid black;
-  border-bottom: 3px solid black;
+        /* Список навигации */
+        ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0 20px 30px;
+        }
 
-  /* Начальное положение (стрелка вправо) */
-  transform: translateY(-50%) rotate(-45deg);
-  transition: transform 0.3s ease; /* Анимация */
-}
-details {
-padding-left: 30px;
-padding-bottom: 30px;
-}
-/* Анимация при раскрытии (поворот вниз) */
-details[open] summary::before {
-  transform: translateY(-70%) rotate(45deg);
-}
+        /* Аккордеон details/summary с кастомной стрелкой */
+        summary {
+            padding-left: 30px;
+            display: inline-block;
+            padding: 10px 20px 10px 45px !important;
+            border-radius: 15px;
+            border: none;
+            color: black;
+            text-decoration: none;
+            background: linear-gradient(90deg, #3eeb0e, #6dede7, yellow, yellow);
+            background-size: 300% 100%;
+            background-position: 0% 0%;
+            transition: background-position 0.5s ease;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+        }
 
-.card-container {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
+        summary:hover {
+            background-position: 100% 0%;
+        }
 
-.card {
-  background-color: #f2a104;
-  border-radius: 25px;
-  padding: 25px;
-  width: 320px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  box-sizing: border-box;
-}
+        /* Скрываем стандартную стрелку */
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        summary {
+            list-style: none;
+        }
 
-.left-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  width: 120px;
-}
+        /* Кастомная стрелка */
+        summary::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            width: 10px;
+            height: 10px;
+            border-right: 3px solid black;
+            border-bottom: 3px solid black;
+            transform: translateY(-50%) rotate(-45deg);
+            transition: transform 0.3s ease;
+        }
 
-/* Стили для реального изображения */
-.card-img {
-  width: 100%;
-  height: 70px;
-  object-fit: cover; /* Картинка заполнит область без искажения пропорций */
-  background-color: #000000; /* Черный фон, если картинка не загрузится */
-}
+        details {
+            padding-left: 30px;
+            padding-bottom: 30px;
+            margin-top: 15px;
+        }
 
-.card-title {
-  color: #000000;
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 1.2;
-  letter-spacing: 0.5px;
-}
+        details[open] summary::before {
+            transform: translateY(-70%) rotate(45deg);
+        }
 
-.right-column {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 130px;
-}
+        /* Карточки (кастомный блок из примера) */
+        .card-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0 30px 20px;
+        }
 
-.btn {
-  background-color: #000000;
-  color: #ffffff;
-  border: none;
-  border-radius: 0;
-  padding: 12px 0;
-  font-size: 14px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  text-align: center;
-  width: 100%;
-}
+        .card {
+            background-color: #f2a104;
+            border-radius: 25px;
+            padding: 25px;
+            width: 320px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            box-sizing: border-box;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
 
-.btn:hover {
-  opacity: 0.8;
-}
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.3);
+        }
+
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 120px;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 70px;
+            object-fit: cover;
+            background-color: #000000;
+            border-radius: 12px;
+        }
+
+        .card-title {
+            color: #000000;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
+        }
+
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 130px;
+        }
+
+        .btn {
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            border-radius: 0;
+            padding: 12px 0;
+            font-size: 14px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+            background-color: #222;
+        }
+
+        /* Специфичные блоки для кошельков */
+        .wallet-section {
+            background: rgba(0, 30, 20, 0.6);
+            backdrop-filter: blur(4px);
+            border-radius: 2rem;
+            margin: 2rem 0;
+            padding: 1.2rem 1.8rem;
+            border: 1px solid #3eeb0e40;
+        }
+
+        .address-line {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            background: #1a2a1a;
+            padding: 12px 20px;
+            border-radius: 60px;
+            margin: 12px 0;
+            font-family: monospace;
+            font-size: 1rem;
+        }
+
+        .address-hash {
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+            letter-spacing: 0.5px;
+            color: #b9ffcf;
+            background: #0a1a0a;
+            padding: 5px 12px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .address-hash:hover {
+            background: #2a4a2a;
+        }
+
+        .chain-tag {
+            background: #2a4b2a;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .copy-address-btn {
+            background: linear-gradient(90deg, #3eeb0e, #6dede7, yellow, yellow);
+            background-size: 300% 100%;
+            padding: 6px 16px;
+            font-size: 0.8rem;
+            border-radius: 40px;
+        }
+
+        .explorer-link-custom {
+            background: linear-gradient(90deg, #3eeb0e, #6dede7, yellow, yellow);
+            background-size: 300% 100%;
+            padding: 6px 16px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+
+        .flex-explorer {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 5px;
+        }
+
+        /* Всплывающий тост */
+        .toast-msg {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #000000cc;
+            backdrop-filter: blur(12px);
+            color: #b9ffb0;
+            padding: 12px 24px;
+            border-radius: 60px;
+            font-family: 'Ubuntu', monospace;
+            font-size: 1rem;
+            font-weight: bold;
+            border-left: 4px solid #3eeb0e;
+            z-index: 1200;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 760px) {
+            body {
+                font-size: 18px;
+                padding: 1rem;
+            }
+            .address-line {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .wallet-section {
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Дополнительный стиль для разделителя */
+        .footer-note {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.75rem;
+            opacity: 0.7;
+            border-top: 1px solid #2a5a2a;
+            padding-top: 20px;
+        }
